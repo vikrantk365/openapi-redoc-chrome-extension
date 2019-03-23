@@ -4,5 +4,10 @@
     left: 0;
     right: 0;
     z-index: 2;
-    background-color: lightgray; 
+    background-color: #c0c0c0; 
+}
+
+.tab-header{
+    color: black;
+    font-weight: bold;
 }

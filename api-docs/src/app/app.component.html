@@ -1,17 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<h2>Here are some links to help you start: </h2>
+<div style="text-align:center"></div>
+<h2>&nbsp;</h2>  
 
 <nav mat-tab-nav-bar class="app-nav">
   <a mat-tab-link
      *ngFor="let link of navLinks"
      [routerLink]="link.path"
      routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive">
+     [active]="rla.isActive"
+     class="tab-header">
     {{link.label}}
   </a>
 </nav>

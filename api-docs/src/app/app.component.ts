@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentService } from './document.service';
 
 
 @Component({
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  ngOnInit(): void {
+  constructor(private documentFetchService: DocumentService) {
+    console.log("App component constructor invoked")
+  }
+
+  async ngOnInit() {
     console.log("Init called", window["Redoc"], document.getElementById('container'), ">>")
     //   window["Redoc"].init('https://raw.githubusercontent.com/ConnectedHomes/bg-core-meters/epic/feature/1233_generate_openapi3_docs/docs/meters.openapi3.yaml?token=AEy5bAaeOBVcxUjpf718s_5FwuA2j7GFks5cmPwvwA%3D%3D', {
     //     nativeScrollbars: true,
@@ -24,6 +29,10 @@ export class AppComponent implements OnInit {
     {
       "path": "/two",
       "label": "Two"
+    },
+    {
+      "path": "/diff",
+      "label": "Difference"
     }
   ]
 }
