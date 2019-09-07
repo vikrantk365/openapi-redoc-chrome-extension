@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { safeLoad as yaml2json } from 'js-yaml'
+import { load as yaml2json } from 'js-yaml'
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +15,24 @@ export class DocumentService {
     console.log("Init Document fetch service")
   }
 
-  async getDocument() {
+  getDocument() {
     if (this._document == null) {
-      this._document = yaml2json(await this.fetchDocument())
+      this.fetchDocumentFromLocalStorage()
+      setTimeout(function () {
+        console.log("waited for 3 sec")
+      }, 3000)
     }
     return this._document
   }
+
+  fetchDocumentFromLocalStorage() {
+    window["chrome"]["storage"]["local"].get(['specDetails'], function (result) {
+      console.log('SpecDetails =====>', result.specDetails);
+      console.log(result.specDetails.yaml)
+      this._document = yaml2json(result.specDetails.yaml)
+    });
+  }
+
 
   async fetchDocument(): Promise<Object> {
     console.log("Fetching data from server")

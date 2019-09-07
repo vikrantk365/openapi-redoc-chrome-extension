@@ -20,19 +20,4 @@ export class AppComponent implements OnInit {
     // }, document.getElementById('container'))
   }
   title = 'chrome-redoc';
-  navLinks = [
-    {
-      "path": "/one",
-      "label": "One",
-      "isActive": true
-    },
-    {
-      "path": "/two",
-      "label": "Two"
-    },
-    {
-      "path": "/diff",
-      "label": "Difference"
-    }
-  ]
 }

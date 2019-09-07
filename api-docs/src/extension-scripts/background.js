@@ -8,6 +8,9 @@ chrome.runtime.onMessage.addListener(
 
 chrome.browserAction.onClicked.addListener(
     function (tab) {
+        chrome.storage.local.set({ "specDetails": window.data["request"] }, function () {
+            console.log('Value is set to ' + window.data["request"]);
+        });
         chrome.tabs.create({
             "url": "index.html"
         })
