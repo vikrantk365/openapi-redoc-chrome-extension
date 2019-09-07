@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(
 chrome.browserAction.onClicked.addListener(
     function (tab) {
         chrome.tabs.create({
-            "url": "api-docs/dist/chrome-redoc/index.html"
+            "url": "index.html"
         })
     }
 )   
