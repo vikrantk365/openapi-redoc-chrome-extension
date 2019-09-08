@@ -1,16 +1,16 @@
 window.data = {}
 
+const SPEC_DETAILS = "specDetails"
+
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        window.data["request"] = request
+        window.data[SPEC_DETAILS] = request
     }
 )
 
 chrome.browserAction.onClicked.addListener(
     function (tab) {
-        chrome.storage.local.set({ "specDetails": window.data["request"] }, function () {
-            console.log('Value is set to ' + window.data["request"]);
-        });
+        chrome.storage.local.set({ SPEC_DETAILS: window.data[SPEC_DETAILS] }, function () {});
         chrome.tabs.create({
             "url": "index.html"
         })
