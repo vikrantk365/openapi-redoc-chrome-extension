@@ -10,9 +10,12 @@ chrome.runtime.onMessage.addListener(
 
 chrome.browserAction.onClicked.addListener(
     function (tab) {
-        chrome.storage.local.set({ SPEC_DETAILS: window.data[SPEC_DETAILS] }, function () {});
-        chrome.tabs.create({
-            "url": "index.html"
-        })
+        chrome.storage.local.set(
+            { "specDetails": window.data[SPEC_DETAILS] },
+            function () {
+                chrome.tabs.create({
+                    "url": "index.html"
+                })
+            });
     }
 )   
