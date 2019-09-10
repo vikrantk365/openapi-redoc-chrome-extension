@@ -18,4 +18,10 @@ chrome.browserAction.onClicked.addListener(
                 })
             });
     }
-)   
+)
+
+chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+    if(details.url.includes("/blob/")){
+        chrome.tabs.executeScript(null,{file:"content.js"})
+    }    
+});

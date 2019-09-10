@@ -1,5 +1,5 @@
 {
-    "name": "Open API 3 Redoc Viewer",
+    "name": "Open API 3 Github Viewer",
     "version": "1.0",
     "manifest_version": 2,
     "icons": {
@@ -10,7 +10,7 @@
     "content_scripts": [
         {
             "matches": [
-                "<all_urls>"
+                "https://github.com/*/*/blob/*"
             ],
             "js": [
                 "content.js"
@@ -18,7 +18,7 @@
         }
     ],
     "browser_action": {
-        "default_title": "Open API 3 Redoc Viewer"
+        "default_title": "Open API 3 Github Viewer"
     },
     "background": {
         "scripts": [
@@ -28,6 +28,8 @@
     "permissions": [
         "tabs",
         "background",
-        "storage"
+        "storage",
+        "webNavigation",
+        "*://github.com/*"
     ]
 }

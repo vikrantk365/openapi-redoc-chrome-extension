@@ -1,10 +1,3 @@
-window.onload = captureSpecDetails
-document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState == "visible") {
-        captureSpecDetails()
-    }
-});
-
 function captureSpecDetails() {
     let githubFileElement = document.querySelector("table.js-file-line-container")
     if (githubFileElement != null) {
@@ -17,3 +10,4 @@ function captureSpecDetails() {
         chrome.runtime.sendMessage(message)
     }
 }
+captureSpecDetails();
