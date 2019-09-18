@@ -1,6 +1,8 @@
-# ChromeRedoc
+# Open API spec viewer 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+Check out chrome extension at [Chrome Webstore](https://chrome.google.com/webstore/detail/open-api-3-github-viewer/ibejpheeklpjnlgkdpbfcbmflkookgjp/)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
 
 ## Development server
 
