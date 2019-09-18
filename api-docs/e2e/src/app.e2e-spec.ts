@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to chrome-redoc!');
+    expect(page.getTitleText()).toEqual('Welcome to openapiviewer-chrome!');
   });
 
   afterEach(async () => {

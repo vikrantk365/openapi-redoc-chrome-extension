@@ -7,25 +7,35 @@ import { safeLoad as yaml2json } from 'js-yaml'
   providedIn: 'root'
 })
 export class DocumentService {
-
-  private _url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml"
-  private _document: Object
+  private _specDetails: Object
+  private _document : Object
 
   constructor(private http: HttpClient) {
     console.log("Init Document fetch service")
   }
 
-  async getDocument() {
-    if (this._document == null) {
-      this._document = yaml2json(await this.fetchDocument())
+  async getDocument() : Promise<Object> {
+    if (this._specDetails == null) {
+      this._specDetails = await this.getSpecDetails()
+      console.log("specDetails => ", this._specDetails)
+      this._document = yaml2json(this._specDetails['yaml'])
+      console.log("document", JSON.stringify(this._document))
     }
     return this._document
   }
 
-  async fetchDocument(): Promise<Object> {
-    console.log("Fetching data from server")
-    return this.http.get(this._url, {
-      responseType: 'text' as 'json'
-    }).toPromise()
+  getSpecDetails() : Promise<Object>{
+    let key = "specDetails"
+    let chrome = window['chrome']
+    return new Promise(function (resolve, reject) {
+      chrome.storage.local.get(key, function (items) {
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError.message);
+          reject(chrome.runtime.lastError.message);
+        } else {
+          resolve(items[key]);
+        }
+      })
+    })
   }
 }

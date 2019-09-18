@@ -1,17 +1,3 @@
 <div style="text-align:center"></div>
-<h2>&nbsp;</h2>  
-
-<nav mat-tab-nav-bar class="app-nav">
-  <a mat-tab-link
-     *ngFor="let link of navLinks"
-     [routerLink]="link.path"
-     routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive"
-     class="tab-header">
-    {{link.label}}
-  </a>
-</nav>
-
-
-
-<router-outlet></router-outlet>
+<h2>&nbsp;</h2>
+<app-doc1></app-doc1>

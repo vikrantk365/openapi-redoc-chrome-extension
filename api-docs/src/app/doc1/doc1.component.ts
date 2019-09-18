@@ -12,11 +12,11 @@ export class Doc1Component implements OnInit {
   async ngOnInit() {
     console.log("Init called Doc1", window["Redoc"], document.getElementById('container'), ">>")
     const doc = await this.documentService.getDocument()
+    console.log("doc", doc)
     window["Redoc"].init(
       doc, {
-        nativeScrollbars: true,
-        scrollYOffset: 50
-      }, document.getElementById('container'))
+      nativeScrollbars: true,
+      scrollYOffset: 50
+    }, document.getElementById('container'))
   }
-
 }
